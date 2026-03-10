@@ -1,38 +1,32 @@
 import java.util.HashMap;
-import java.util.Map;
 
-/**
- * Manages centralized room availability using a HashMap.
- *
- * @author Lakshman
- * @version 3.0
- */
+public class RoomInventory {
 
-class RoomInventory {
-
-    private Map<String, Integer> inventory;
+    private HashMap<String, Integer> inventory;
 
     public RoomInventory() {
         inventory = new HashMap<>();
 
-        inventory.put("Single Room", 5);
-        inventory.put("Double Room", 3);
-        inventory.put("Suite Room", 2);
+        inventory.put("Single", 5);
+        inventory.put("Double", 3);
+        inventory.put("Suite", 2);
     }
 
     public int getAvailability(String roomType) {
-        return inventory.getOrDefault(roomType, 0);
+        return inventory.get(roomType);
     }
 
     public void updateAvailability(String roomType, int count) {
         inventory.put(roomType, count);
     }
 
-    public void displayInventory() {
-        System.out.println("\nCurrent Room Inventory:");
+    public HashMap<String, Integer> getInventory() {
+        return inventory;
+    }
 
-        for (Map.Entry<String, Integer> entry : inventory.entrySet()) {
-            System.out.println(entry.getKey() + " Available: " + entry.getValue());
+    public void displayInventory() {
+        for (String type : inventory.keySet()) {
+            System.out.println(type + " Rooms Available: " + inventory.get(type));
         }
     }
 }
