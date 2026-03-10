@@ -4,9 +4,11 @@
  * @author Lakshman
  * @version 2.0
  */
-class DoubleRoom extends Room {
+public class DoubleRoom extends Room {
 
     public DoubleRoom() {
-        super("Double Room", 2, 350, 180);
+        beds = 2;
+        size = "Medium";
+        price = 3500;
     }
 }
